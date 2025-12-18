@@ -1,0 +1,26 @@
+@page "/products"
+@layout ProductLayout 
+
+<h3 class="mb-3">Products</h3>
+
+<div class="d-flex flex-wrap gap-2">
+    @foreach (var p in ProductList)
+    {
+        <ProductCard
+            Name="@p.Name"
+            ImageUrl="@p.ImageUrl"
+            Price="@p.Price"
+            Likes="@p.Likes" />
+    }
+</div>
+
+@code {
+    private List<Product> ProductList = new()
+    {
+        new Product { Name="Laptop", ImageUrl="images/laptop.jpg", Price=1200, Likes=10 },
+        new Product { Name="Phone", ImageUrl="images/Phone.jpg", Price=850, Likes=15 },
+        new Product { Name="Headphones", ImageUrl="images/Headphone.jpg", Price=199, Likes=22 },
+        new Product { Name="Tablet", ImageUrl="images/tablet.jpg", Price=499, Likes=9 },
+        new Product { Name="Camera", ImageUrl="images/Camera.jpg", Price=999, Likes=12 }
+    };
+}
